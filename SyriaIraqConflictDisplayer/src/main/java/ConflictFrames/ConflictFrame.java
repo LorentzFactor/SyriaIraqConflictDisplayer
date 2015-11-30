@@ -30,12 +30,6 @@ public class ConflictFrame
 		stringDate = tableElements.get(1).select("a").text();
 		date = format.parse(stringDate);
 		mapLocation = mapFolder + "\\" + format.toString();
-		//BufferedImage image = ImageIO.read(url);
-		//File f = new File(mapLocation);
-		//if(!f.exists())
-		//{
-		//	f.createNewFile();
-		//}
 	}
 	
 	public Date getDate()
@@ -45,7 +39,7 @@ public class ConflictFrame
 	
 	public BufferedImage getMap() throws IOException
 	{
-		return ImageIO.read(new File(mapLocation));
+		return ImageIO.read(url);
 	}
 	
 	public String getStringURL()
