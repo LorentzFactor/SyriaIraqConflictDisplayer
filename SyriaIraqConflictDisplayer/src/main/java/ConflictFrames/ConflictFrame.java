@@ -1,7 +1,8 @@
 package ConflictFrames;
 
+import java.awt.Graphics2D;
+
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -12,6 +13,11 @@ import javax.imageio.ImageIO;
 
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import com.xuggle.xuggler.IPixelFormat;
+import com.xuggle.xuggler.IVideoPicture;
+import com.xuggle.xuggler.video.ConverterFactory;
+import com.xuggle.xuggler.video.IConverter;
 
 public class ConflictFrame
 {
@@ -39,7 +45,12 @@ public class ConflictFrame
 	
 	public BufferedImage getMap() throws IOException
 	{
-		return ImageIO.read(url);
+		BufferedImage map = ImageIO.read(url);
+		BufferedImage newImage = new BufferedImage(map.getWidth(), map.getHeight(), BufferedImage.TYPE_3BYTE_BGR);
+		Graphics2D g = newImage.createGraphics();
+		g.drawImage(map, 0, 0, null);
+		g.dispose();
+		return newImage;
 	}
 	
 	public String getStringURL()
