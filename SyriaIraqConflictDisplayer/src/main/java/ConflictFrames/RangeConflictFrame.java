@@ -33,11 +33,11 @@ public class RangeConflictFrame extends ConflictFrame
 		format.format(endDate);
 	}
 
-	public String getEndStringDate() {
+	public String getStringDate() {
 		return endStringDate;
 	}
 
-	public Date getEndDate() {
+	public Date getDate() {
 		return endDate;
 	}
 }

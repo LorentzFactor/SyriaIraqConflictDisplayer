@@ -38,7 +38,7 @@ public class ConflictFrame
 		mapLocation = mapFolder + "\\" + format.toString();
 	}
 	
-	public Date getDate()
+	public Date getEndDate()
 	{
 		return date;
 	}
@@ -63,7 +63,7 @@ public class ConflictFrame
 		return url;
 	}
 
-	public String getStringDate() 
+	public String getEndStringDate() 
 	{
 		return stringDate;
 	}
