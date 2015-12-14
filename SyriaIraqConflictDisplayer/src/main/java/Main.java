@@ -21,10 +21,5 @@ public class Main {
 		ConflictFrameList frames = new ConflictFrameList("Syrian,_Iraqi,_and_Lebanese_insurgencies.png", "H:");
 		
 		ImagesToVideos test = new ImagesToVideos(frames);
-		//DataSource[] sources = new DataSource[frames.size()];
-		//for(int i = 0; i < frames.size(); i++)
-		//{
-		//	sources[i] = new URLDataSource(frames.get(i).getUrl());
-		//}
 	}
 }

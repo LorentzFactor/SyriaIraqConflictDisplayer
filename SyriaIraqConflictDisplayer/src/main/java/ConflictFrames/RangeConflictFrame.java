@@ -21,7 +21,6 @@ public class RangeConflictFrame extends ConflictFrame
 	public RangeConflictFrame(Element row, Element nextRow, String mapFolder, DateFormat format) throws IOException, ParseException
 	{
 		super(row, mapFolder, format);
-		System.out.println(getStringURL());
 		Elements tableElements = nextRow.select("td");
 		endStringDate = nextRow.select("a").text();
 		endDate = format.parse(endStringDate);

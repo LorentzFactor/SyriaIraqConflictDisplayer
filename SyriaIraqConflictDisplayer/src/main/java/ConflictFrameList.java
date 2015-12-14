@@ -19,8 +19,7 @@ import ConflictFrames.RangeConflictFrame;
 public class ConflictFrameList implements Iterable<RangeConflictFrame>
 {
 	private ArrayList<RangeConflictFrame> frames = new ArrayList<RangeConflictFrame>();
-	private DateFormat format = new SimpleDateFormat("HH:mm, dd MMMMMMMMM YYYY");
-	private GregorianCalendar calendar = new GregorianCalendar();
+	private DateFormat format = new SimpleDateFormat("HH:mm, dd MMMMMMMMM yyyy");
 	
 	public ConflictFrameList(String fileName, String fileLocation) throws ParseException
 	{
@@ -50,7 +49,7 @@ public class ConflictFrameList implements Iterable<RangeConflictFrame>
 		  {
 		         Document doc = Jsoup.connect(html).get();
 		         Elements tableRowElements = doc.select("#mw-imagepage-section-filehistory > table > tbody");
-		         for(int i = 1; i < tableRowElements.get(0).children().size(); i++)
+		         for(int i = tableRowElements.get(0).children().size()-1; i >= 1 ; i--)
 		         {
 		        	 if(i != tableRowElements.get(0).children().size() - 1)
 		        	 { 
@@ -63,7 +62,6 @@ public class ConflictFrameList implements Iterable<RangeConflictFrame>
 		        	 }
 		         }
 		         frames.add(new RangeConflictFrame( tableRowElements.get(0).child(1), tableRowElements.get(0).child(2), mapLocation, format));
-		         System.out.println("here");
 		  }
 		  catch(IOException e)
 		  {
@@ -72,7 +70,7 @@ public class ConflictFrameList implements Iterable<RangeConflictFrame>
 		  }
 	}
 	
-	public ConflictFrame get(int i)
+	public RangeConflictFrame get(int i)
 	{
 		return frames.get(i);
 	}
